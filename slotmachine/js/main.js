@@ -22,8 +22,8 @@ var blanks = 0;
 function showPlayerStats()
 {
     winRatio = winNumber / turn;
-    $("#jackpot").text("Jackpot: " + jackpot);
-    $("#playerMoney").text("Player Money: " + playerMoney);
+    $("#jack2>center>p").text("Jackpot: " + jackpot);
+    $("#play2>center>p").text("Credits: " + playerMoney);
     $("#playerTurn").text("Turn: " + turn);
     $("#playerWins").text("Wins: " + winNumber);
     $("#playerLosses").text("Losses: " + lossNumber);
@@ -223,9 +223,18 @@ $("#spinButton").click(function () {
 
     if (playerMoney == 0)
     {
+        
         if (confirm("You ran out of Money! \nDo you want to play again?")) {
             resetAll();
+            $("div#betamount>center>p").text("Bet Amount: $" + playerBet);
+            document.getElementById("spinButton").style.background = "url('img/button.png')";
+            document.getElementById("spinButton").disabled = false;
             showPlayerStats();
+        }
+        else {
+            document.getElementById("spinButton").style.background = "url('img/button2.png')";
+            document.getElementById("spinButton").disabled = true;
+            document.getElementById("spinButton").background - color == black;
         }
     }
     else if (playerBet == 0)
@@ -234,6 +243,7 @@ $("#spinButton").click(function () {
     }
     else if (playerBet > playerMoney) {
         alert("You don't have enough Money to place that bet.");
+        document.getElementById("button").disabled = true;
     }
     else if (playerBet < 0) {
         alert("All bets must be a positive $ amount.");
@@ -258,7 +268,11 @@ $("#spinButton").click(function () {
 $("#reset").click(function () {
 
     
-    window.location.replace("http://stackoverflow.com");
+    resetAll();
+    showPlayerStats();
+    document.getElementById("spinButton").style.background = "url('img/button.png')";
+    document.getElementById("spinButton").disabled = false;
+    $("div#betamount>center>p").text("Bet Amount: $" + playerBet);
 
 });
 
