@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<!--
+    @author Farshad Ash - 200263939
+    @version October 30 2014
+    @last mod Oct 31
+    @param This program creates a simple html5 + Js slot machine that allows the user to bet and win credits
+-->
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +16,7 @@
 <body>
     <div>
         <div>
+            <!-- Display Player Statistics-->
             <h2>Player Statistics</h2>
             <hr />
             <ul id="playerStats">
@@ -21,15 +29,18 @@
         </div>        
     </div>
 
+    <!-- Display slot machine graphics with default images-->
     <div id="result">
         <Center><h2>Slot Machine</h2></Center>
         <hr />
         <center>
             <img style="position:absolute" src="img/slotmachine.png" />
-            <img id="reel1" style="position:relative; top:7px; left:9px" src="img/bell.png" />
-            <img id="reel2" style="position:relative; top:7px; left:5px;" src="img/banana.png" />
-            <img id="reel3" style="position:relative; top:7px; left:1px;" src="img/blank.png" />
+            <img id="reel1" style="position:relative; top:7px; left:9px" src="img/load1.png" />
+            <img id="reel2" style="position:relative; top:7px; left:5px;" src="img/load2.png" />
+            <img id="reel3" style="position:relative; top:7px; left:1px;" src="img/load3.png" />
         </center>
+
+        <!-- Display default buttons used to control slot machine-->
         <div>
             <br />
             <center>
@@ -40,10 +51,12 @@
                 <button id="quit" style="background: url(img/quit.png); width:51px; height: 51px; "></button>
             </center>
         </div>
+
+        <!-- Used for displaying bet amount, jackpot and credits to player-->
         <div id="betamount">
-            <center><p>Bet Amount: 0</p></center>
+                <center><p>Bet Amount: 0</p></center>
             <div id="jack2">
-                <center><p>Jackpot: 5000</p></center>
+                <center><p >Jackpot: 5000</p></center>
             </div>
             <div id="play2">
                 <center><p>Credits: 1000</p></center>
@@ -52,6 +65,8 @@
         
     </div>
     <hr />
+
+    <!-- Used to show player if they won or lost-->
     <div id="winOrLose">
         <center><p></p></center>
     </div>
