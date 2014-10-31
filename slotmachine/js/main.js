@@ -1,4 +1,6 @@
 ﻿/// <reference path="jquery.js" />
+
+//default variables to control various class objects
 var playerMoney = 1000;
 var winnings = 0;
 var jackpot = 5000;
@@ -21,6 +23,7 @@ var blanks = 0;
 /* Utility function to show Player Stats */
 function showPlayerStats()
 {
+    //calculate and display player statistics
     winRatio = winNumber / turn;
     $("#jack2>center>p").text("Jackpot: " + jackpot);
     $("#play2>center>p").text("Credits: " + playerMoney);
@@ -70,6 +73,7 @@ function checkJackPot() {
 /* Utility function to show a win message and increase player money */
 function showWinMessage() {
     playerMoney += winnings;
+    //display you won in win or lose div
     $("div#winOrLose>center>p").text("You Won: $" + winnings);
     resetFruitTally();
     checkJackPot();
@@ -78,6 +82,7 @@ function showWinMessage() {
 /* Utility function to show a loss message and reduce player money */
 function showLossMessage() {
     playerMoney -= playerBet;
+    //display you lost in win or lose div
     $("div#winOrLose>center>p").text("You Lost!");
     resetFruitTally();
 }
@@ -203,6 +208,7 @@ function determineWinnings()
     
 }
 
+//This function sets player bet amount to $10 and updates label
 $("#bet10Button").click(function () {
 
     playerBet = 10;
@@ -210,6 +216,7 @@ $("#bet10Button").click(function () {
 
 });
 
+//This function sets player bet amount to maximum amount of credits and updates label
 $("#maxbetButton").click(function () {
 
     playerBet = playerMoney;
@@ -223,15 +230,16 @@ $("#spinButton").click(function () {
 
     if (playerMoney == 0)
     {
-        
+        //ask user if theyd like a reset
         if (confirm("You ran out of Money! \nDo you want to play again?")) {
             resetAll();
             $("div#betamount>center>p").text("Bet Amount: $" + playerBet);
-            document.getElementById("spinButton").style.background = "url('img/button.png')";
-            document.getElementById("spinButton").disabled = false;
+            document.getElementById("spinButton").style.background = "url('img/button.png')"; //grey out spin button
+            document.getElementById("spinButton").disabled = false; //disable it
             showPlayerStats();
         }
         else {
+            //enable the button and reset graphics
             document.getElementById("spinButton").style.background = "url('img/button2.png')";
             document.getElementById("spinButton").disabled = true;
             document.getElementById("spinButton").background - color == black;
@@ -239,9 +247,11 @@ $("#spinButton").click(function () {
     }
     else if (playerBet == 0)
     {
+        //alert player they have no bet placed
         alert("Bets must be greater than 0!")
     }
     else if (playerBet > playerMoney) {
+        //alert player they are placing a bet higherr than bet amount
         alert("You don't have enough Money to place that bet.");
         document.getElementById("button").disabled = true;
     }
@@ -250,7 +260,7 @@ $("#spinButton").click(function () {
     }
     else if (playerBet <= playerMoney) {
         spinResult = Reels();
-        fruits = spinResult[0];
+        //set image sources to results from the spinResult array.
         $("#reel1").attr("src", "img/" + spinResult[0]);
         $("#reel2").attr("src", "img/" + spinResult[1]);
         $("#reel3").attr("src", "img/" + spinResult[2]);
@@ -265,9 +275,8 @@ $("#spinButton").click(function () {
 }
 );
 
+//this function resets all variables within the program and displays stats
 $("#reset").click(function () {
-
-    
     resetAll();
     showPlayerStats();
     document.getElementById("spinButton").style.background = "url('img/button.png')";
@@ -276,6 +285,7 @@ $("#reset").click(function () {
 
 });
 
+//this function redirects the player to "quit" the game
 $("#quit").click(function () {
 
     window.location.replace("http://webdesign4.georgianc.on.ca/~200263939/comp2068/Assignment1/Portfolio/index");
