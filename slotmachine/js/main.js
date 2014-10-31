@@ -107,31 +107,31 @@ function Reels() {
                 blanks++;
                 break;
             case checkRange(outCome[spin], 28, 37): // 15.4% probability
-                betLine[spin] = "Grapes.png";
+                betLine[spin] = "grapes.png";
                 grapes++;
                 break;
             case checkRange(outCome[spin], 38, 46): // 13.8% probability
-                betLine[spin] = "Banana.png";
+                betLine[spin] = "banana.png";
                 bananas++;
                 break;
             case checkRange(outCome[spin], 47, 54): // 12.3% probability
-                betLine[spin] = "Orange";
+                betLine[spin] = "orange.png";
                 oranges++;
                 break;
             case checkRange(outCome[spin], 55, 59): //  7.7% probability
-                betLine[spin] = "Cherry";
+                betLine[spin] = "cherries.png";
                 cherries++;
                 break;
             case checkRange(outCome[spin], 60, 62): //  4.6% probability
-                betLine[spin] = "Bar";
+                betLine[spin] = "bar.png";
                 bars++;
                 break;
             case checkRange(outCome[spin], 63, 64): //  3.1% probability
-                betLine[spin] = "Bell";
+                betLine[spin] = "bell.png";
                 bells++;
                 break;
             case checkRange(outCome[spin], 65, 65): //  1.5% probability
-                betLine[spin] = "Seven";
+                betLine[spin] = "seven.png";
                 sevens++;
                 break;
         }
@@ -222,8 +222,10 @@ $("#spinButton").click(function () {
     }
     else if (playerBet <= playerMoney) {
         spinResult = Reels();
-        fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
-        $("div#result>p").text(fruits);
+        fruits = spinResult[0];
+        $("#reel1").attr("src", "img/" + spinResult[0]);
+        $("#reel2").attr("src", "img/" + spinResult[1]);
+        $("#reel3").attr("src", "img/" + spinResult[2]);
         determineWinnings();
         turn++;
         showPlayerStats();
