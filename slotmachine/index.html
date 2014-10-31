@@ -8,7 +8,6 @@
 </head>
 <body>
     <div>
-        <h1>Slot Machine</h1>
         <div>
             <h2>Player Statistics</h2>
             <hr />
@@ -21,32 +20,35 @@
                 <li id="playerWinRatio">Win Ratio: 0%</li>
             </ul>
             <hr />
-        </div>
-
-        <div id="betEntry">
-
-            <p>Place Your Bet Here</p>
-            <input id="playerBet" name="points" value="10">
-            <hr />
-        </div>
-
-
-        <button id="spinButton" style="background: url(img/button.png); width:51px; height: 51px; "></button>
+        </div>        
     </div>
 
     <div id="result">
-        <h2>Spin Result</h2>
+        <Center><h2>Slot Machine</h2></Center>
         <hr />
-        <img style="position:absolute" src="img/slotmachine.png" />
-            <img id ="reel1" style="position:relative;" src="img/bell.png" />
-            <img id="reel2" style="position:relative;" src="img/banana.png" />
-            <img id="reel3" style="position:relative;" src="img/blank.png" />
-            <p></p>
-        <p></p>
+        <center>
+            <img style="position:absolute" src="img/slotmachine.png" />
+            <img id="reel1" style="position:relative; top:7px; left:9px" src="img/bell.png" />
+            <img id="reel2" style="position:relative; top:7px; left:5px;" src="img/banana.png" />
+            <img id="reel3" style="position:relative; top:7px; left:1px;" src="img/blank.png" />
+        </center>
+        <div>
+            <br />
+            <center>
+                <button id="bet10Button" style="background: url(img/bet10.png); width:51px; height: 51px; "></button>
+                <button id="maxbetButton" style="background: url(img/betmax.png); width:51px; height: 51px; "></button>
+                <button id="spinButton" style="background: url(img/button.png); width:51px; height: 51px; "></button>
+                <button id="reset" style="background: url(img/reset.png); width:51px; height: 51px; "></button>
+                <button id="quit" style="background: url(img/quit.png); width:51px; height: 51px; "></button>
+            </center>
+        </div>
+        <div id="betamount">
+            <center><p>Bet Amount: 0</p></center>
+        </div>
     </div>
     <hr />
     <div id="winOrLose">
-        <p></p>
+        <center><p></p></center>
     </div>
     <div id="test">
         <p></p>

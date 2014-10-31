@@ -70,7 +70,7 @@ function checkJackPot() {
 /* Utility function to show a win message and increase player money */
 function showWinMessage() {
     playerMoney += winnings;
-    $("div#winOrLose>p").text("You Won: $" + winnings);
+    $("div#winOrLose>center>p").text("You Won: $" + winnings);
     resetFruitTally();
     checkJackPot();
 }
@@ -78,7 +78,7 @@ function showWinMessage() {
 /* Utility function to show a loss message and reduce player money */
 function showLossMessage() {
     playerMoney -= playerBet;
-    $("div#winOrLose>p").text("You Lost!");
+    $("div#winOrLose>center>p").text("You Lost!");
     resetFruitTally();
 }
 
@@ -203,9 +203,23 @@ function determineWinnings()
     
 }
 
+$("#bet10Button").click(function () {
+
+    playerBet = 10;
+    $("div#betamount>center>p").text("Bet Amount: $" + playerBet);
+
+});
+
+$("#maxbetButton").click(function () {
+
+    playerBet = playerMoney;
+    $("div#betamount>center>p").text("Bet Amount: $" + playerBet);
+
+});
+
 /* When the player clicks the spin button the game kicks off */
 $("#spinButton").click(function () {
-    playerBet = $("div#betEntry>input").val();
+    //playerBet = $("div#betEntry>input").val();
 
     if (playerMoney == 0)
     {
@@ -213,6 +227,10 @@ $("#spinButton").click(function () {
             resetAll();
             showPlayerStats();
         }
+    }
+    else if (playerBet == 0)
+    {
+        alert("Bets must be greater than 0!")
     }
     else if (playerBet > playerMoney) {
         alert("You don't have enough Money to place that bet.");
@@ -234,4 +252,18 @@ $("#spinButton").click(function () {
         alert("Please enter a valid bet amount");
     }
     
+}
+);
+
+$("#reset").click(function () {
+
+    
+    window.location.replace("http://stackoverflow.com");
+
+});
+
+$("#quit").click(function () {
+
+    window.location.replace("http://webdesign4.georgianc.on.ca/~200263939/comp2068/Assignment1/Portfolio/index");
+
 });
